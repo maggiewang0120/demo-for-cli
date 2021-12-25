@@ -1,32 +1,44 @@
-<template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
-</template>
+  <template>
+    <body class="body">
+      <div id="app">
+        <div id="nav">
+          <router-link to="/">Home</router-link>
+          <!-- <router-link :to="{name:'Home'}">Home</router-link> 也可以寫這樣-->
+          <router-link to="/about">About</router-link>
+           <!-- <router-link :to="{name:'About'}">About</router-link> -->
+           
+          <!--<router-link>設定路由像是a link一樣的hyperlink-->
+          <DisplayNumbers class="wow"></DisplayNumbers>
+          <AddNumbers></AddNumbers>
+          <AutoTime></AutoTime>
+        </div>
+        <router-view/><!--<router-view>決定現在要顯示哪一個 在router那裡的index設定-->
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+      </div>
+    </body>
+  </template>
 
-#nav {
-  padding: 30px;
+<script>
+import AddNumbers from './components/AddNumbers.vue'
+import DisplayNumbers from './components/DisplayNumbers.vue'
+import AutoTime from './components/AutoTime.vue'
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+export default {
+  name:'App', 
+  components: {
+    AddNumbers,
+    DisplayNumbers,
+    AutoTime
   }
 }
+</script>
+
+<style lang="scss">
+  .wow{
+    border:1px solid white;
+  }
+  body{
+    background-color: rgb(168, 175, 185);
+    margin:0 ;
+  }
 </style>
